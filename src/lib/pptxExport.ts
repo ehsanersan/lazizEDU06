@@ -1,15 +1,15 @@
 import pptxgen from "pptxgenjs";
 import { toFa, faPad } from "../utils/fa";
 
-/* Colors (no #) */
-const BG = "0D0D1A";
-const INK = "F8F8FF";
-const MUTED = "9C9CB0";
+/* Colors (no #) — light glass theme */
+const BG = "FFFFFF";
+const INK = "23203F";
+const MUTED = "8A879E";
 const PURPLE = "8B5CF6";
-const PURPLE_L = "C4B5FD";
-const YELLOW = "F5C518";
-const GREEN = "22C55E";
-const GLASS = "1C1C30";
+const PURPLE_L = "6D28D9";
+const YELLOW = "946B00";
+const GREEN = "16A34A";
+const GLASS = "F5F3FE";
 
 interface PptxSlide {
   title: string;
@@ -344,7 +344,7 @@ export async function exportPptx() {
       const panelH = Math.min(4.3, s.bullets.length * 0.62 + 0.6);
       slide.addShape("roundRect", {
         x: 0.9, y: top, w: 11.5, h: panelH,
-        fill: { color: GLASS }, line: { color: "3A3A55", width: 1 }, rectRadius: 0.12,
+        fill: { color: GLASS }, line: { color: "DCD6F5", width: 1 }, rectRadius: 0.12,
       });
       slide.addText(
         s.bullets.map((b) => ({
@@ -363,7 +363,7 @@ export async function exportPptx() {
     if (s.note) {
       slide.addShape("roundRect", {
         x: 2.7, y: 6.35, w: 8, h: 0.62,
-        fill: { color: "26200A" }, line: { color: YELLOW, width: 1 }, rectRadius: 0.31,
+        fill: { color: "FFF6D9" }, line: { color: "F5C518", width: 1 }, rectRadius: 0.31,
       });
       slide.addText(s.note, {
         x: 2.8, y: 6.35, w: 7.8, h: 0.62,

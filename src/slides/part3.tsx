@@ -13,14 +13,14 @@ import { toFa } from "../utils/fa";
 export function Slide21() {
   return (
     <div className="relative flex h-full flex-col px-14 py-10">
-      <Bokeh />
+      <Bokeh v={3} />
       <SectionTag>فصل بیستم</SectionTag>
-      <SlideTitle className="mt-3">تغییر شیفت ساعت {toFa(16)}</SlideTitle>
+      <SlideTitle className="mt-3" gradient>تغییر شیفت ساعت {toFa(16)}</SlideTitle>
       <div className="mt-6 grid flex-1 grid-cols-2 gap-6">
-        <GlassCard className="anim anim-2 px-8 py-7">
+        <GlassCard ring className="anim anim-2 px-8 py-7">
           <div className="mb-5 flex items-center gap-3">
-            <span className="text-[26px]">📤</span>
-            <span className="text-[18px] font-extrabold text-[#c4b5fd]">تحویل‌دهنده</span>
+            <span className="glass flex h-12 w-12 items-center justify-center rounded-xl text-[24px]">📤</span>
+            <span className="text-[18px] font-extrabold text-[#7C3AED]">تحویل‌دهنده</span>
           </div>
           <ul className="space-y-4">
             <CheckItem>گزارش سفارش‌های باز و در جریان</CheckItem>
@@ -29,10 +29,10 @@ export function Slide21() {
             <CheckItem>گزارش مشکلات و خرابی تجهیزات</CheckItem>
           </ul>
         </GlassCard>
-        <GlassCard className="anim anim-3 px-8 py-7">
+        <GlassCard ring glow="green" className="anim anim-3 px-8 py-7">
           <div className="mb-5 flex items-center gap-3">
-            <span className="text-[26px]">📥</span>
-            <span className="text-[18px] font-extrabold text-[#4ade80]">تحویل‌گیرنده</span>
+            <span className="glass flex h-12 w-12 items-center justify-center rounded-xl text-[24px]">📥</span>
+            <span className="text-[18px] font-extrabold text-[#15803D]">تحویل‌گیرنده</span>
           </div>
           <ul className="space-y-4">
             <CheckItem>تأیید وضعیت کانتر و محصولات</CheckItem>
@@ -53,18 +53,21 @@ export function Slide21() {
 export function Slide22() {
   return (
     <div className="relative flex h-full flex-col items-center justify-center px-16">
-      <Bokeh />
+      <Bokeh v={1} />
       <SectionTag>فصل بیست‌ویکم — شربت پذیرایی استاندارد</SectionTag>
-      <GlassCard glow="purple" className="glass-strong anim anim-1 mt-7 w-full max-w-[820px] px-12 py-10 text-center">
-        <div className="flex items-center justify-center gap-4 text-[24px] font-extrabold text-[#F8F8FF]">
+      <GlassCard ring glow="purple" className="glass-strong anim anim-1 mt-7 w-full max-w-[820px] px-12 py-10 text-center">
+        <div className="flex items-center justify-center gap-4 text-[24px] font-extrabold text-[#23203F]">
           <span className="glass rounded-2xl px-6 py-3">💧 آب</span>
-          <span className="text-[#F5C518]">+</span>
+          <span className="num-gradient text-[28px]">+</span>
           <span className="glass rounded-2xl px-6 py-3">🍋 آبلیمو</span>
-          <span className="text-[#F5C518]">+</span>
+          <span className="num-gradient text-[28px]">+</span>
           <span className="glass rounded-2xl px-6 py-3">🍯 شیرین‌کننده</span>
         </div>
-        <div className="mx-auto mt-6 h-px w-56 bg-[rgba(139,92,246,0.4)]" />
-        <p className="mt-5 text-[21px] font-extrabold text-[#c4b5fd]">= فرمول واحد در همه شعب</p>
+        <div
+          className="mx-auto mt-7 h-[3px] w-64 rounded-full"
+          style={{ background: "linear-gradient(to left, #8B5CF6, #F5C518, #22C55E)" }}
+        />
+        <p className="mt-5 text-[21px] font-extrabold text-[#6D28D9]">= فرمول واحد در همه شعب</p>
       </GlassCard>
       <div className="anim anim-3 mt-7 flex items-center gap-5">
         <Pill tone="green" className="px-7 py-3 text-[16px]">🕐 ساعت سرو: {toFa(11)} تا {toFa(22)}</Pill>
@@ -92,25 +95,21 @@ export function Slide23() {
   ];
   return (
     <div className="relative flex h-full flex-col px-14 py-10">
-      <Bokeh />
+      <Bokeh v={2} />
       <SectionTag>فصل بیست‌ودوم</SectionTag>
-      <SlideTitle className="mt-3">بستن شیفت و تحویل کانتر</SlideTitle>
+      <SlideTitle className="mt-3" gradient>بستن شیفت و تحویل کانتر</SlideTitle>
       <div className="mt-6 grid flex-1 grid-cols-2 gap-6">
-        <GlassCard className="anim anim-2 px-8 py-6">
+        <GlassCard ring className="anim anim-2 px-8 py-6">
           <ol className="space-y-3.5">
             {items.slice(0, 5).map((it, i) => (
-              <NumItem key={it} n={toFa(i + 1)} tone="yellow">
-                {it}
-              </NumItem>
+              <NumItem key={it} n={toFa(i + 1)} tone="yellow">{it}</NumItem>
             ))}
           </ol>
         </GlassCard>
-        <GlassCard className="anim anim-3 px-8 py-6">
+        <GlassCard ring className="anim anim-3 px-8 py-6">
           <ol className="space-y-3.5">
             {items.slice(5).map((it, i) => (
-              <NumItem key={it} n={toFa(i + 6)} tone="yellow">
-                {it}
-              </NumItem>
+              <NumItem key={it} n={toFa(i + 6)} tone="yellow">{it}</NumItem>
             ))}
           </ol>
         </GlassCard>
@@ -127,16 +126,16 @@ export function Slide24() {
   const line1 = ["محصول صحیح", "مقدار صحیح", "کیفیت صحیح"];
   const line2 = ["دمای مناسب", "ظاهر مناسب", "بسته‌بندی صحیح"];
   const chip = (t: string) => (
-    <span key={t} className="glass rounded-xl px-5 py-2.5 text-[16.5px] font-bold text-[#F8F8FF]">
+    <span key={t} className="glass rounded-xl px-5 py-2.5 text-[16.5px] font-bold text-[#23203F]">
       {t}
     </span>
   );
-  const plus = <span className="text-[20px] font-black text-[#F5C518]">+</span>;
+  const plus = <span className="num-gradient text-[22px] font-black">+</span>;
   return (
     <div className="relative flex h-full flex-col items-center justify-center px-16">
-      <Bokeh />
+      <Bokeh v={3} />
       <SectionTag>فصل بیست‌وسوم — مسئولیت کانتردار</SectionTag>
-      <GlassCard glow="purple" className="glass-strong anim anim-1 mt-7 w-full max-w-[900px] px-12 py-9 text-center">
+      <GlassCard ring glow="purple" className="glass-strong anim anim-1 mt-7 w-full max-w-[900px] px-12 py-9 text-center">
         <div className="flex flex-wrap items-center justify-center gap-3">
           {line1.map((t, i) => (
             <span key={t} className="flex items-center gap-3">
@@ -154,8 +153,11 @@ export function Slide24() {
           ))}
         </div>
         <div className="mt-4 flex items-center justify-center gap-3">{chip("تمام اقلام سفارش")}</div>
-        <div className="mx-auto mt-6 h-px w-72 bg-[rgba(139,92,246,0.45)]" />
-        <p className="mt-5 text-[26px] font-black text-[#F5C518]">= مسئولیت کانتردار</p>
+        <div
+          className="mx-auto mt-6 h-[3px] w-80 rounded-full"
+          style={{ background: "linear-gradient(to left, #8B5CF6, #F5C518, #22C55E)" }}
+        />
+        <p className="num-gradient mt-5 text-[27px] font-black">= مسئولیت کانتردار</p>
       </GlassCard>
       <div className="anim anim-4 mt-7">
         <Pill tone="red" className="px-7 py-3 text-[16px]">
@@ -178,16 +180,16 @@ export function Slide25() {
   ];
   return (
     <div className="relative flex h-full flex-col px-14 py-10">
-      <Bokeh />
+      <Bokeh v={1} />
       <SectionTag>فصل بیست‌وچهارم</SectionTag>
-      <SlideTitle className="mt-3">مسئولیت صندوق و فروش</SlideTitle>
+      <SlideTitle className="mt-3" gradient>مسئولیت صندوق و فروش</SlideTitle>
       <div className="mt-7 grid flex-1 grid-cols-3 gap-5">
         {items.map((it, i) => (
-          <GlassCard key={it.t} className={`anim anim-${(i % 6) + 1} flex flex-col items-center justify-center px-5 py-6 text-center`}>
-            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[rgba(139,92,246,0.12)] text-[30px]">
+          <GlassCard ring key={it.t} className={`anim anim-${(i % 6) + 1} flex flex-col items-center justify-center px-5 py-6 text-center`}>
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[rgba(139,92,246,0.14)] text-[30px]">
               {it.icon}
             </span>
-            <span className="mt-3 text-[15.5px] font-bold leading-relaxed text-[#F8F8FF]">{it.t}</span>
+            <span className="mt-3 text-[15.5px] font-bold leading-relaxed text-[#23203F]">{it.t}</span>
           </GlassCard>
         ))}
       </div>
@@ -201,40 +203,28 @@ export function Slide25() {
 /* ---------------------- SLIDE 26 — مسئولیت مدیر شعبه ---------------------- */
 export function Slide26() {
   const phases = [
-    {
-      title: "قبل از فروش",
-      icon: "🌅",
-      items: ["کنترل آمادگی کامل شعبه", "تعیین جایگاه نفرات"],
-    },
-    {
-      title: "حین فروش",
-      icon: "🔥",
-      items: ["حضور فعال در سالن", "کنترل کیفیت و مدیریت صف", "رسیدگی به اعتراض مشتری"],
-    },
-    {
-      title: "بعد از فروش",
-      icon: "🌙",
-      items: ["کنترل تحویل شیفت", "ثبت خطاها", "آموزش نیروی جدید"],
-    },
+    { title: "قبل از فروش", icon: "🌅", items: ["کنترل آمادگی کامل شعبه", "تعیین جایگاه نفرات"] },
+    { title: "حین فروش", icon: "🔥", items: ["حضور فعال در سالن", "کنترل کیفیت و مدیریت صف", "رسیدگی به اعتراض مشتری"] },
+    { title: "بعد از فروش", icon: "🌙", items: ["کنترل تحویل شیفت", "ثبت خطاها", "آموزش نیروی جدید"] },
   ];
   return (
     <div className="relative flex h-full flex-col px-14 py-10">
-      <Bokeh />
+      <Bokeh v={2} />
       <SectionTag>فصل بیست‌وپنجم</SectionTag>
       <div className="anim anim-1 mt-3 flex items-center gap-4">
-        <span className="h-10 w-1.5 rounded-full bg-gradient-to-b from-[#a78bfa] to-[#8B5CF6]" />
-        <h2 className="text-[32px] font-extrabold text-[#F8F8FF]">مسئولیت مدیر شعبه و سوپروایزر</h2>
+        <span className="h-10 w-1.5 rounded-full bg-gradient-to-b from-[#8B5CF6] to-[#22C55E]" />
+        <h2 className="title-gradient text-[32px] font-extrabold">مسئولیت مدیر شعبه و سوپروایزر</h2>
       </div>
       <div className="mt-6 grid flex-1 grid-cols-3 gap-5">
         {phases.map((p, i) => (
-          <GlassCard key={p.title} className={`anim anim-${i + 2} px-6 py-6`}>
+          <GlassCard ring key={p.title} className={`anim anim-${i + 2} px-6 py-6`}>
             <div className="mb-4 flex items-center gap-3">
-              <span className="text-[24px]">{p.icon}</span>
-              <span className="text-[17px] font-extrabold text-[#c4b5fd]">{p.title}</span>
+              <span className="glass flex h-11 w-11 items-center justify-center rounded-xl text-[22px]">{p.icon}</span>
+              <span className="text-[17px] font-extrabold text-[#7C3AED]">{p.title}</span>
             </div>
             <ul className="space-y-3">
               {p.items.map((it) => (
-                <li key={it} className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-[#F8F8FF]">
+                <li key={it} className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-[#23203F]">
                   <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rotate-45 rounded-[1.5px] bg-[#F5C518]" />
                   {it}
                 </li>
@@ -254,25 +244,28 @@ export function Slide26() {
 function GoldenRules({ start, rules, part }: { start: number; rules: string[]; part: string }) {
   return (
     <div className="relative flex h-full flex-col px-16 py-10">
-      <Bokeh />
+      <Bokeh v={1} />
       <div
-        className="absolute inset-x-0 top-0 h-40"
-        style={{ background: "radial-gradient(600px 160px at 50% 0%, rgba(245,197,24,0.1), transparent)" }}
+        className="absolute inset-x-0 top-0 h-44"
+        style={{ background: "radial-gradient(620px 170px at 50% 0%, rgba(245,197,24,0.18), transparent)" }}
       />
       <div className="anim text-center">
-        <div className="text-[13px] font-bold tracking-wide text-[#F5C518]">{part}</div>
-        <h2 className="title-gradient mt-1 text-[34px] font-black">
+        <div className="text-[13px] font-bold tracking-wide text-[#A16207]">{part}</div>
+        <h2 className="title-gradient mt-1 inline-block text-[34px] font-black">
           {toFa(10)} قانون طلایی فروش و کانتر لذیذ
         </h2>
       </div>
-      <div className="mt-7 flex flex-1 flex-col gap-3.5">
+      <div className="relative mt-7 flex flex-1 flex-col gap-3.5">
         {rules.map((r, i) => (
-          <div key={r} className={`glass anim anim-${i + 1} flex items-center gap-6 rounded-2xl px-8 py-4`}>
-            <span className="w-16 shrink-0 text-center text-[44px] font-black leading-none text-[#F5C518]">
+          <div key={r} className={`glass gradient-ring anim anim-${i + 1} flex items-center gap-6 rounded-2xl px-8 py-4`}>
+            <span className="num-gradient w-16 shrink-0 text-center text-[46px] font-black leading-none">
               {toFa(start + i)}
             </span>
-            <span className="h-10 w-px bg-[rgba(139,92,246,0.35)]" />
-            <span className="text-[18px] font-bold leading-relaxed text-[#F8F8FF]">{r}</span>
+            <span
+              className="h-10 w-[3px] rounded-full"
+              style={{ background: "linear-gradient(to bottom, #8B5CF6, #22C55E)", opacity: 0.6 }}
+            />
+            <span className="text-[18px] font-bold leading-relaxed text-[#23203F]">{r}</span>
           </div>
         ))}
       </div>
@@ -316,20 +309,27 @@ export function Slide28() {
 export function Slide29() {
   return (
     <div className="relative flex h-full flex-col items-center justify-center px-16">
-      <span className="bokeh h-96 w-96 bg-[rgba(139,92,246,0.22)]" style={{ top: "-8rem", right: "10%" }} />
+      <Bokeh v={3} />
+      <span className="bokeh h-96 w-96 bg-[rgba(139,92,246,0.24)]" style={{ top: "-8rem", right: "10%" }} />
       <span className="bokeh h-96 w-96 bg-[rgba(34,197,94,0.14)]" style={{ bottom: "-8rem", left: "10%" }} />
       <SectionTag>استاندارد نهایی</SectionTag>
-      <GlassCard glow="purple" className="glass-strong anim anim-1 mt-7 w-full max-w-[980px] px-14 py-12 text-center">
+      <GlassCard ring glow="purple" className="glass-strong anim anim-1 mt-7 w-full max-w-[980px] px-14 py-12 text-center">
         <span className="text-[46px] leading-none text-[#8B5CF6]">❝</span>
-        <p className="mt-2 text-[26px] font-extrabold leading-[2] text-[#F8F8FF]">
-          <span className="text-[#F5C518]">سفارش درست</span>، <span className="text-[#F5C518]">غذای باکیفیت</span>،{" "}
-          <span className="text-[#F5C518]">دمای مناسب</span>، <span className="text-[#F5C518]">بسته‌بندی کامل</span>،
+        <p className="mt-2 text-[26px] font-extrabold leading-[2] text-[#23203F]">
+          <span className="rounded-xl bg-[rgba(245,197,24,0.22)] px-2 text-[#8A6400]">سفارش درست</span>،{" "}
+          <span className="rounded-xl bg-[rgba(245,197,24,0.22)] px-2 text-[#8A6400]">غذای باکیفیت</span>،{" "}
+          <span className="rounded-xl bg-[rgba(245,197,24,0.22)] px-2 text-[#8A6400]">دمای مناسب</span>،
           <br />
-          <span className="text-[#4ade80]">محیط تمیز</span>، <span className="text-[#4ade80]">تحویل سریع</span> و{" "}
-          <span className="text-[#4ade80]">رفتار محترمانه</span>
+          <span className="rounded-xl bg-[rgba(34,197,94,0.14)] px-2 text-[#15803D]">بسته‌بندی کامل</span>،{" "}
+          <span className="rounded-xl bg-[rgba(34,197,94,0.14)] px-2 text-[#15803D]">محیط تمیز</span>،{" "}
+          <span className="rounded-xl bg-[rgba(34,197,94,0.14)] px-2 text-[#15803D]">تحویل سریع</span> و{" "}
+          <span className="rounded-xl bg-[rgba(34,197,94,0.14)] px-2 text-[#15803D]">رفتار محترمانه</span>
         </p>
-        <div className="mx-auto mt-7 h-px w-64 bg-[rgba(139,92,246,0.4)]" />
-        <p className="anim anim-3 mt-6 text-[19px] font-bold text-[#c4b5fd]">این است استاندارد مجموعه لذیذ</p>
+        <div
+          className="mx-auto mt-7 h-[3px] w-72 rounded-full"
+          style={{ background: "linear-gradient(to left, #8B5CF6, #F5C518, #22C55E)" }}
+        />
+        <p className="anim anim-3 mt-6 text-[19px] font-bold text-[#6D28D9]">این است استاندارد مجموعه لذیذ</p>
       </GlassCard>
     </div>
   );
@@ -339,15 +339,16 @@ export function Slide29() {
 export function Slide30() {
   return (
     <div className="relative flex h-full flex-col items-center justify-center px-16">
-      <span className="bokeh h-80 w-80 bg-[rgba(139,92,246,0.2)]" style={{ top: "-6rem", left: "30%" }} />
-      <span className="bokeh h-64 w-64 bg-[rgba(245,197,24,0.08)]" style={{ bottom: "-4rem", right: "20%" }} />
+      <Bokeh v={1} />
+      <span className="bokeh h-80 w-80 bg-[rgba(139,92,246,0.22)]" style={{ top: "-6rem", left: "30%" }} />
+      <span className="bokeh h-64 w-64 bg-[rgba(245,197,24,0.16)]" style={{ bottom: "-4rem", right: "20%" }} />
       <div className="anim glass glow-purple flex h-24 w-24 items-center justify-center rounded-3xl text-[44px]">
         🍽
       </div>
-      <h2 className="title-gradient anim anim-1 mt-8 text-[52px] font-black tracking-tight">
+      <h2 className="title-gradient anim anim-1 mt-8 inline-block text-[52px] font-black tracking-tight">
         ممنون از توجه شما
       </h2>
-      <p className="anim anim-2 mt-5 text-[19px] font-semibold text-[#F8F8FF]">
+      <p className="anim anim-2 mt-5 text-[19px] font-semibold text-[#23203F]">
         موفقیت ما در گرو کیفیت خدمت شماست
       </p>
       <div className="anim anim-3 mt-10 flex items-center gap-4 border-t divider-purple pt-6 text-[13.5px] text-muted">

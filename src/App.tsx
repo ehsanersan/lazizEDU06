@@ -91,7 +91,7 @@ export default function App() {
   const Slide = slides[index].Component;
 
   return (
-    <div dir="rtl" className="relative flex h-full flex-col overflow-hidden bg-[#0D0D1A] font-sans">
+    <div dir="rtl" className="relative flex h-full flex-col overflow-hidden bg-[#F3F2FA] font-sans">
       <audio
         ref={audioRef}
         onEnded={() => setAudioState("idle")}
@@ -100,9 +100,9 @@ export default function App() {
       />
 
       {/* progress bar */}
-      <div className="absolute inset-x-0 top-0 z-30 h-[3px] bg-[rgba(255,255,255,0.06)]">
+      <div className="absolute inset-x-0 top-0 z-30 h-[3px] bg-[rgba(139,92,246,0.12)]">
         <div
-          className="h-full rounded-l-full bg-gradient-to-l from-[#8B5CF6] to-[#F5C518] transition-all duration-300"
+          className="h-full rounded-l-full bg-gradient-to-l from-[#8B5CF6] via-[#C084FC] to-[#F5C518] transition-all duration-300"
           style={{ width: `${((index + 1) / TOTAL) * 100}%` }}
         />
       </div>
@@ -110,8 +110,13 @@ export default function App() {
       {/* stage */}
       <div className="flex flex-1 items-center justify-center overflow-hidden">
         <div
-          className="slide-bg grain relative shrink-0 overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.1)]"
-          style={{ width: W, height: H, transform: `scale(${scale})` }}
+          className="slide-bg grain relative shrink-0 overflow-hidden rounded-3xl border border-[rgba(139,92,246,0.18)]"
+          style={{
+            width: W,
+            height: H,
+            transform: `scale(${scale})`,
+            boxShadow: "0 28px 70px rgba(79,45,156,0.16), 0 6px 18px rgba(79,45,156,0.08)",
+          }}
         >
           <div key={index} className="slide-enter h-full">
             <Slide />
@@ -121,38 +126,38 @@ export default function App() {
           <button
             onClick={replay}
             title={audioFile}
-            className="absolute bottom-5 left-5 z-20 flex min-h-[44px] items-center gap-2.5 rounded-full border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.06)] px-4 py-2 backdrop-blur-md transition hover:bg-[rgba(139,92,246,0.18)]"
+            className="absolute bottom-5 left-5 z-20 flex min-h-[44px] items-center gap-2.5 rounded-full border border-[rgba(124,58,237,0.2)] bg-[rgba(255,255,255,0.75)] px-4 py-2 shadow-[0_6px_18px_rgba(79,52,156,0.1)] backdrop-blur-md transition hover:bg-[rgba(139,92,246,0.12)]"
           >
             <span
               className={cn(
                 "flex h-8 w-8 items-center justify-center rounded-full text-[15px]",
                 audioState === "playing"
-                  ? "bg-[rgba(34,197,94,0.2)] text-[#22C55E]"
-                  : "bg-[rgba(139,92,246,0.18)] text-[#c4b5fd]",
+                  ? "bg-[rgba(34,197,94,0.15)] text-[#16A34A]"
+                  : "bg-[rgba(139,92,246,0.14)] text-[#6D28D9]",
               )}
             >
               {audioState === "playing" ? "🔊" : "▶"}
             </span>
-            <span className="text-[12.5px] font-semibold text-[rgba(248,248,255,0.55)]">
+            <span className="text-[12.5px] font-semibold text-[rgba(35,32,63,0.55)]">
               {audioState === "missing" ? `فایل ${audioFile} یافت نشد` : "پخش صدا"}
             </span>
           </button>
 
           {/* slide number badge — bottom-right */}
-          <div className="absolute bottom-5 right-6 z-20 text-[12px] font-bold text-[rgba(248,248,255,0.4)]">
+          <div className="absolute bottom-5 right-6 z-20 text-[12px] font-bold text-[rgba(35,32,63,0.45)]">
             {faPad(index + 1)} / {toFa(TOTAL)}
           </div>
         </div>
       </div>
 
       {/* bottom control bar */}
-      <div className="z-30 flex h-[68px] shrink-0 items-center justify-between border-t border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] px-6 backdrop-blur-xl">
+      <div className="z-30 flex h-[68px] shrink-0 items-center justify-between border-t border-[rgba(139,92,246,0.12)] bg-[rgba(255,255,255,0.72)] px-6 backdrop-blur-xl">
         <div className="flex items-center gap-3">
-          <span className="hidden items-center gap-2 text-[13px] font-bold text-[#F8F8FF] md:flex">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[rgba(139,92,246,0.2)] text-[15px]">🍽</span>
+          <span className="hidden items-center gap-2 text-[13px] font-bold text-[#23203F] md:flex">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[rgba(139,92,246,0.15)] text-[15px]">🍽</span>
             مجموعه لذیذ
-            <span className="text-[rgba(248,248,255,0.4)]">|</span>
-            <span className="max-w-[380px] truncate font-medium text-[rgba(248,248,255,0.55)]">
+            <span className="text-[rgba(35,32,63,0.4)]">|</span>
+            <span className="max-w-[380px] truncate font-medium text-[rgba(35,32,63,0.55)]">
               {slides[index].title}
             </span>
           </span>
@@ -162,8 +167,8 @@ export default function App() {
           <NavBtn onClick={prev} disabled={index === 0} label="اسلاید قبلی">
             →
           </NavBtn>
-          <div className="glass min-w-[86px] rounded-xl px-4 py-2 text-center text-[14px] font-extrabold text-[#F5C518]">
-            {faPad(index + 1)} <span className="text-[rgba(248,248,255,0.4)]">/</span> {toFa(TOTAL)}
+          <div className="glass min-w-[86px] rounded-xl px-4 py-2 text-center text-[14px] font-extrabold text-[#A16207]">
+            {faPad(index + 1)} <span className="text-[rgba(35,32,63,0.4)]">/</span> {toFa(TOTAL)}
           </div>
           <NavBtn onClick={next} disabled={index === TOTAL - 1} label="اسلاید بعدی">
             ←
@@ -186,7 +191,7 @@ export default function App() {
           <button
             onClick={handleExport}
             disabled={exporting}
-            className="flex h-11 items-center gap-2 rounded-xl border border-[rgba(139,92,246,0.5)] bg-[rgba(139,92,246,0.18)] px-4 text-[13px] font-bold text-[#d6c7ff] transition hover:bg-[rgba(139,92,246,0.3)] disabled:opacity-50"
+            className="flex h-11 items-center gap-2 rounded-xl border border-[rgba(124,58,237,0.45)] bg-[rgba(139,92,246,0.12)] px-4 text-[13px] font-bold text-[#6D28D9] transition hover:bg-[rgba(139,92,246,0.2)] disabled:opacity-50"
           >
             ⬇ {exporting ? "در حال ساخت…" : "دانلود PowerPoint"}
           </button>
@@ -195,14 +200,14 @@ export default function App() {
 
       {/* overview */}
       {overview && (
-        <div className="absolute inset-0 z-40 flex flex-col bg-[rgba(13,13,26,0.92)] backdrop-blur-xl">
+        <div className="absolute inset-0 z-40 flex flex-col bg-[rgba(250,249,255,0.94)] backdrop-blur-xl">
           <div className="flex items-center justify-between px-8 py-5">
-            <h3 className="text-[20px] font-extrabold text-[#F8F8FF]">
-              نمای کلی — <span className="text-[#F5C518]">{toFa(TOTAL)}</span> اسلاید
+            <h3 className="text-[20px] font-extrabold text-[#23203F]">
+              نمای کلی — <span className="num-gradient">{toFa(TOTAL)}</span> اسلاید
             </h3>
             <button
               onClick={() => setOverview(false)}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.06)] text-[18px] text-[#F8F8FF] hover:bg-[rgba(239,68,68,0.2)]"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(139,92,246,0.25)] bg-[rgba(255,255,255,0.8)] text-[18px] text-[#23203F] transition hover:bg-[rgba(239,68,68,0.12)]"
             >
               ✕
             </button>
@@ -213,15 +218,15 @@ export default function App() {
                 key={s.n}
                 onClick={() => go(i)}
                 className={cn(
-                  "glass flex flex-col items-start gap-2 rounded-2xl px-4 py-4 text-right transition hover:border-[rgba(139,92,246,0.6)] hover:bg-[rgba(139,92,246,0.14)]",
-                  i === index && "border-[rgba(245,197,24,0.6)] bg-[rgba(245,197,24,0.08)]",
+                  "glass flex flex-col items-start gap-2 rounded-2xl px-4 py-4 text-right transition hover:border-[rgba(124,58,237,0.5)] hover:bg-[rgba(139,92,246,0.1)]",
+                  i === index && "border-[rgba(245,197,24,0.8)] bg-[rgba(245,197,24,0.1)]",
                 )}
               >
-                <span className={cn("text-[22px] font-black", i === index ? "text-[#F5C518]" : "text-[#8B5CF6]")}>
+                <span className={cn("text-[22px] font-black", i === index ? "num-gradient" : "text-[#7C3AED]")}>
                   {faPad(s.n)}
                 </span>
-                <span className="text-[13px] font-bold leading-relaxed text-[#F8F8FF]">{s.title}</span>
-                <span className="text-[10.5px] text-[rgba(248,248,255,0.4)]">slide_{String(s.n).padStart(2, "0")}.mp3</span>
+                <span className="text-[13px] font-bold leading-relaxed text-[#23203F]">{s.title}</span>
+                <span className="text-[10.5px] text-[rgba(35,32,63,0.4)]">slide_{String(s.n).padStart(2, "0")}.mp3</span>
               </button>
             ))}
           </div>
@@ -248,7 +253,7 @@ function NavBtn({
       disabled={disabled}
       title={label}
       aria-label={label}
-      className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.06)] text-[17px] text-[#F8F8FF] transition hover:bg-[rgba(139,92,246,0.2)] disabled:cursor-not-allowed disabled:opacity-30"
+      className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(139,92,246,0.22)] bg-[rgba(255,255,255,0.75)] text-[17px] text-[#23203F] transition hover:bg-[rgba(139,92,246,0.12)] disabled:cursor-not-allowed disabled:opacity-35"
     >
       {children}
     </button>
